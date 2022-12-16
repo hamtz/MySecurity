@@ -20,11 +20,12 @@
             android:layout_height="200dp"
             android:src="@drawable/surveillance" />
     </RelativeLayout>
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp">
+        android:layout_margin="24dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tx_jumlah_known_name"
@@ -34,18 +35,18 @@
             android:text="Jumlah Orang Terdaftar"
             android:textAllCaps="true"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tv_jumlah_class_names"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tx_jumlah_known_name"
             android:gravity="center"
             android:text="0"
             android:textSize="18sp"
             android:textStyle="bold" />
-    </RelativeLayout>
+    </LinearLayout>
     <RelativeLayout
         android:id="@+id/content_detection"
         android:layout_width="match_parent"
@@ -60,7 +61,8 @@
             android:text="Realtime Detection"
             android:textAllCaps="true"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
 
         <LinearLayout

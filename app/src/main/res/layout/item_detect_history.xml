@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="siapa"
+                android:text="-"
                 android:textColor="@color/black"
                 android:textSize="18sp"                />
         </LinearLayout>
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="99/00/11 t 11:22:33"
+                android:text="01/01/22 t 11:22:33"
                 android:textColor="@color/black"
                 android:textSize="18sp"                />
         </LinearLayout>

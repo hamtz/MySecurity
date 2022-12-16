@@ -24,7 +24,7 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun getUserData() {
-        dbref = FirebaseDatabase.getInstance().getReference("log")
+        dbref = FirebaseDatabase.getInstance().getReference("history")
         dbref.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){

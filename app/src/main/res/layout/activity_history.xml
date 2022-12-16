@@ -4,11 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
     tools:context=".HistoryActivity">
+
+    <TextView
+        android:id="@+id/tx_historilist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Detection History"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_userlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/tx_historilist"
         tools:listitem="@layout/item_detect_history" />
 
 </RelativeLayout>

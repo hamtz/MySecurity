@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
                 val dt = tolong?.let { Instant.ofEpochSecond(it).atZone(ZoneId.systemDefault()).toLocalDateTime() }
                 realtimeTime.text = dt.toString()
 
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -80,19 +79,19 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.about -> {
-                Toast.makeText(this,"About Selected",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"About",Toast.LENGTH_SHORT).show()
                 val i = Intent(this, AboutActivity::class.java)
                 this.startActivity(i)
             }
             R.id.settings ->{
-                Toast.makeText(this,"Detection History Selected",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Detection History",Toast.LENGTH_SHORT).show()
                 val i = Intent(this, HistoryActivity::class.java)
                 this.startActivity(i)
             }
             R.id.exit ->{
-                Toast.makeText(this,"Exit Selected",Toast.LENGTH_SHORT).show()
-                val i = Intent(this, AboutActivity::class.java)
-                this.startActivity(i)
+                Toast.makeText(this,"Exit",Toast.LENGTH_SHORT).show()
+//                val i = Intent(this, AboutActivity::class.java)
+                this.finish()
             }
         }
         return super.onOptionsItemSelected(item)
