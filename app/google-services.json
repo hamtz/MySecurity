@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "440928093275",
+    "firebase_url": "https://realtimefr-e7201-default-rtdb.firebaseio.com",
+    "project_id": "realtimefr-e7201",
+    "storage_bucket": "realtimefr-e7201.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440928093275:android:ab706c224a232150376b7e",
+        "android_client_info": {
+          "package_name": "com.ilham.mysecurity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440928093275-cmsa9k0ojkajmnkehjf55257s0jb1hkt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXitVZw32dUakHecrY9eRc3RYq92Fn1EI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440928093275-cmsa9k0ojkajmnkehjf55257s0jb1hkt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Security</string>
+    <string name="detected_name">Nama</string>
+    <string name="detected_time">time </string>
+</resources>
