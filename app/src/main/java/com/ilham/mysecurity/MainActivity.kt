@@ -16,16 +16,25 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.time.*
-import java.text.SimpleDateFormat
-import java.util.*
+import com.google.firebase.messaging.FirebaseMessaging
+import java.time.Instant
+import java.time.ZoneId
 
 
 class MainActivity : AppCompatActivity() {
 
+//    companion object {
+//        private const val TAG = "MainActivity"
+//        private const val NOTIFICATION_REQUEST_CODE = 1234
+//    }
+
+    @SuppressLint("StringFormatInvalid")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        
+        val CHANNEL_ID = "1"
+
 
         val jumlahClassNames = findViewById<TextView>(R.id.tv_jumlah_class_names)
         val realtimeDetect = findViewById<TextView>(R.id.tv_realtime_detection)
@@ -49,6 +58,8 @@ class MainActivity : AppCompatActivity() {
                 Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
+
+        //content history
         detectedRef.addValueEventListener(object : ValueEventListener {
 
             @RequiresApi(Build.VERSION_CODES.O)
@@ -62,6 +73,8 @@ class MainActivity : AppCompatActivity() {
 //                val simpleDate = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
                 val dt = tolong?.let { Instant.ofEpochSecond(it).atZone(ZoneId.systemDefault()).toLocalDateTime() }
                 realtimeTime.text = dt.toString()
+//                notification()
+//                Log.d(realtimeTime.text)
 
             }
 
@@ -70,7 +83,77 @@ class MainActivity : AppCompatActivity() {
                 Log.w(TAG, "Failed to read value.", error.toException())
             }
         })
+
+        //GET TOKEN ID FOR FIREBASE
+        FirebaseMessaging.getInstance().token.addOnSuccessListener { result ->
+            if(result != null){
+                var fbToken = result
+                Log.d(TAG,"onComplete: Token: "+ fbToken);
+                // DO your thing with your firebase token
+            }
+        }
+
+//        <NOTIFICATION> ===================================================
+        // Create an explicit intent for an Activity in your app
+//        val intent = Intent(this, MainActivity::class.java).apply {
+//            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//        }
+//        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+////
+//        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+//            .setSmallIcon(R.drawable.ic_stat_ic_notification)
+//            .setContentTitle("My notification")
+//            .setContentText("Much longer text that cannot fit one line...")
+//            .setStyle(NotificationCompat.BigTextStyle().bigText("Much longer text that cannot fit one line..."))
+//            .setPriority(NotificationCompat.PRIORITY_HIGH)
+//            .setContentIntent(pendingIntent)
+//            .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+//            .setAutoCancel(true)
+//
+//        with(NotificationManagerCompat.from(this)) {
+//            // notificationId is a unique int for each notification that you must define
+//            val notificationId = (0..99).random()
+//            notify(notificationId, builder.build())
+//        }
+//        <END OF NOTIFICATION>========================================
+
+//        createNotificationChannel()
     }
+
+//    private fun createNotificationChannel() {
+//        // Create the NotificationChannel, but only on API 26+ because
+//        // the NotificationChannel class is new and not in the support library
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            val name = getString(R.string.channel_name)
+//            val descriptionText = getString(R.string.channel_description)
+//            val importance = NotificationManager.IMPORTANCE_DEFAULT
+//
+//            val CHANNEL_ID = (0..10).random().toString()
+//            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+//                description = descriptionText
+//            }
+//            // Register the channel with the system
+//            val notificationManager: NotificationManager =
+//                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//            notificationManager.createNotificationChannel(channel)
+//        }
+//    }
+
+//      SIMPLE NOTIFICATION
+//    @RequiresApi(Build.VERSION_CODES.O)
+//    private fun notification() {
+////        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            val channel = NotificationChannel("n", "n", NotificationManager.IMPORTANCE_HIGH)
+//            val manager = getSystemService(NotificationManager::class.java)
+//            manager.createNotificationChannel(channel)
+////        }
+//
+//        val builder = NotificationCompat.Builder(this,"n").setContentText("Code Sphere").setSmallIcon(R.drawable.ic_settings).setAutoCancel(true).setContentText("New Data is added:")
+//        val managerCompat = NotificationManagerCompat.from(this)
+//        managerCompat.notify(999,builder.build())
+//
+//    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)
         return super.onCreateOptionsMenu(menu)
@@ -96,6 +179,8 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 
 
 }

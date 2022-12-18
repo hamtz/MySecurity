@@ -2,4 +2,8 @@
     <string name="app_name">My Security</string>
     <string name="detected_name">Nama</string>
     <string name="detected_time">time </string>
+    <string name="msg_token_fmt"></string>
+    <string name="channel_name">a</string>
+    <string name="channel_description">b</string>
+    <!--    <string name="default_notification_channel_id">default notification channel id</string>-->
 </resources>
