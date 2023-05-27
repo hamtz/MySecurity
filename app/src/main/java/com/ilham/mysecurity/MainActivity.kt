@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val CHANNEL_ID = "1"
 
 
-        val jumlahClassNames = findViewById<TextView>(R.id.tv_jumlah_class_names)
+//        val jumlahClassNames = findViewById<TextView>(R.id.tv_jumlah_class_names)
         val realtimeDetect = findViewById<TextView>(R.id.tv_realtime_detection)
         val realtimeTime = findViewById<TextView>(R.id.tv_realtime_time)
 
@@ -48,7 +48,28 @@ class MainActivity : AppCompatActivity() {
         classNamesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val size = dataSnapshot.childrenCount.toInt()
-                jumlahClassNames.text = size.toString()
+//                jumlahClassNames.text = size.toString() # sementara di non aktifkan
+
+//                <TextView
+//                android:id="@+id/tx_jumlah_known_name"
+//                android:layout_width="match_parent"
+//                android:layout_height="wrap_content"
+//                android:gravity="center"
+//                android:text="Jumlah Orang Terdaftar"
+//                android:textAllCaps="true"
+//                android:textSize="24sp"
+//                android:textStyle="bold"
+//                android:textColor="@color/black"/>
+//
+//                <TextView
+//                android:id="@+id/tv_jumlah_class_names"
+//                android:layout_width="match_parent"
+//                android:layout_height="wrap_content"
+//                android:gravity="center"
+//                android:text="0"
+//                android:textSize="18sp"
+//                android:textStyle="bold" />
+//
 //                val value = dataSnapshot.getValue(String::class.java)
 //                Log.d(TAG, "Value is: $value")
             }
@@ -164,6 +185,10 @@ class MainActivity : AppCompatActivity() {
             R.id.about -> {
                 Toast.makeText(this,"About",Toast.LENGTH_SHORT).show()
                 val i = Intent(this, AboutActivity::class.java)
+                this.startActivity(i)
+            } R.id.detections -> {
+                Toast.makeText(this,"Face Detected",Toast.LENGTH_SHORT).show()
+                val i = Intent(this, ImageDetectedActivity::class.java)
                 this.startActivity(i)
             }
             R.id.settings ->{

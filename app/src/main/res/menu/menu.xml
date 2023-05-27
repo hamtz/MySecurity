@@ -13,6 +13,11 @@
                 android:title="DETECTION HISTORY"
                 app:showAsAction="never" />
             <item
+                android:id="@+id/detections"
+                android:icon="@drawable/ic_person"
+                android:title="FACE DETECTED"
+                app:showAsAction="never" />
+            <item
                 android:id="@+id/about"
                 android:icon="@drawable/ic_about"
                 android:title="ABOUT"
